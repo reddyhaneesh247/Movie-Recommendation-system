@@ -123,9 +123,3 @@ These files can be directly used in a web application (e.g., Streamlit) for real
 - Hybrid recommendation system.
 - Improve recommendations using TF-IDF and advanced NLP techniques.
 
-## 👨‍💻 Author
-
-Haneesh Reddy
-
-GitHub: https://github.com/yourusername
-LinkedIn: https://linkedin.com/in/yourprofile
