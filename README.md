@@ -115,11 +115,5 @@ pickle.dump(similarity, open('similarity.pkl', 'wb'))
 
 These files can be directly used in a web application (e.g., Streamlit) for real-time recommendations.
 
-## 📈 Future Improvements
 
-- Add movie posters using TMDB API.
-- Deploy using Streamlit.
-- Include movie ratings and popularity.
-- Hybrid recommendation system.
-- Improve recommendations using TF-IDF and advanced NLP techniques.
 
