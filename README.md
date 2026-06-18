@@ -86,11 +86,11 @@ recommend("Ramanjun")
 Output:
 
 ```text
-Guardians of the Galaxy
-John Carter
-Star Trek
-Aliens
-Titan A.E.
+Get on Up
+Coal Miner's Daughter
+Ip Man 3
+A Passage to India
+A Beautiful Mind
 ```
 
 ## Model Persistence
