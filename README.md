@@ -80,7 +80,7 @@ The system identifies movies with the highest similarity scores and recommends t
 ## Example
 
 ```python
-recommend("Ramanjun")
+recommend("Ramanujan")
 ```
 
 Output:
@@ -140,7 +140,7 @@ Execute all notebook cells sequentially to:
 ### 5. Generate Recommendations
 
 ```python
-recommend("Ramanjun")
+recommend("Ramanujan")
 ```
 
 The system will return the top 5 most similar movies.
@@ -157,7 +157,7 @@ Movie-Recommendation-system/
 ├── similarity.pkl
 └── README.md
 ```
-The End
+## THE END
 
 
 
