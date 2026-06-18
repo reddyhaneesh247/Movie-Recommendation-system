@@ -1,119 +1,163 @@
 # 🎬 Movie Recommendation System
 
-A Content-Based Movie Recommendation System built using Python, Pandas, Scikit-learn, and NLP techniques. The system recommends movies similar to a given movie based on genres, keywords, cast, crew, and movie overview.
+## Overview
 
-## 📌 Features
+This project is a Content-Based Movie Recommendation System that recommends movies similar to a user's selected movie using Natural Language Processing (NLP) and Cosine Similarity. The system analyzes movie metadata such as genres, keywords, cast, crew, and plot overview to identify similar movies.
 
-- Content-based filtering approach
-- Recommends top 5 similar movies
-- Uses movie metadata such as:
-  - Genres
-  - Keywords
-  - Cast
-  - Director
-  - Overview
-- Text vectorization using CountVectorizer
-- Similarity calculation using Cosine Similarity
-- Serialized model and processed data using Pickle for deployment
+## Features
 
-## 🛠️ Technologies Used
+* Content-based movie recommendations
+* NLP-based feature engineering
+* Movie similarity computation using Cosine Similarity
+* Efficient recommendation generation
+* Serialized recommendation artifacts using Pickle
+* Fast retrieval of similar movies
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- NLP (Text Processing)
-- Pickle
+## Dataset
 
-## 📂 Dataset
+The project uses the TMDB 5000 Movies Dataset:
 
-The project uses the TMDB 5000 Movie Dataset:
+* `tmdb_5000_movies.csv`
+* `tmdb_5000_credits.csv`
 
-- tmdb_5000_movies.csv
-- tmdb_5000_credits.csv
+Features utilized:
 
-Dataset Source:
-https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+* Genres
+* Keywords
+* Cast
+* Crew (Director)
+* Overview
 
-## ⚙️ Project Workflow
+## Technologies Used
 
-### 1. Data Collection
-- Load movie and credits datasets.
-- Merge datasets using movie title.
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* CountVectorizer
+* Cosine Similarity
+* Pickle
 
-### 2. Data Preprocessing
-- Select relevant columns:
-  - movie_id
-  - title
-  - overview
-  - genres
-  - keywords
-  - cast
-  - crew
-- Remove missing values.
+## Project Workflow
 
-### 3. Feature Engineering
-- Extract:
-  - Genres
-  - Keywords
-  - Top 3 Cast Members
-  - Director
-- Clean text by removing spaces.
-- Combine all features into a single `tags` column.
+### Data Preprocessing
 
-### 4. Text Vectorization
-- Apply CountVectorizer with:
-  - max_features = 5000
-  - stop_words = 'english'
+* Merged movies and credits datasets
+* Removed missing values
+* Extracted genres, keywords, cast, and director information
+* Cleaned and transformed text features
 
-### 5. Similarity Calculation
-- Generate feature vectors.
-- Compute cosine similarity between movies.
+### Feature Engineering
 
-### 6. Recommendation Generation
-Given a movie title:
-1. Find its index.
-2. Retrieve similarity scores.
-3. Sort movies based on similarity.
-4. Return the top 5 recommendations.
+Created a combined `tags` feature containing:
 
-## 🚀 Example
+* Overview
+* Genres
+* Keywords
+* Top Cast Members
+* Director
+
+### Text Vectorization
+
+Converted movie tags into vectors using:
 
 ```python
-recommend("Ramanujan")
+CountVectorizer(max_features=5000, stop_words='english')
+```
+
+### Similarity Computation
+
+Calculated movie similarity using:
+
+```python
+cosine_similarity()
+```
+
+### Recommendation Generation
+
+The system identifies movies with the highest similarity scores and recommends the top matching movies.
+
+## Example
+
+```python
+recommend("Ramanjun")
 ```
 
 Output:
 
 ```text
-Movie 1
-Movie 2
-Movie 3
-Movie 4
-Movie 5
+Guardians of the Galaxy
+John Carter
+Star Trek
+Aliens
+Titan A.E.
 ```
 
-## 📁 Files
+## Model Persistence
 
-```text
-├── tmdb_5000_movies.csv
-├── tmdb_5000_credits.csv
-├── MovieRecommender.ipynb
-├── movie_list.pkl
-├── similarity.pkl
-└── README.md
-```
-
-## 💾 Model Serialization
-
-The processed movie dataset and similarity matrix are stored using Pickle:
+Serialized processed movie data and similarity matrix using Pickle:
 
 ```python
+import pickle
+
 pickle.dump(new, open('movie_list.pkl', 'wb'))
 pickle.dump(similarity, open('similarity.pkl', 'wb'))
 ```
 
-These files can be directly used in a web application (e.g., Streamlit) for real-time recommendations.
+## How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/reddyhaneesh247/Movie-Recommendation-system.git
+cd Movie-Recommendation-system
+```
+
+### 2. Install Required Libraries
+
+```bash
+pip install pandas numpy scikit-learn
+```
+
+### 3. Open the Notebook
+
+Open the notebook in Google Colab or Jupyter Notebook:
+
+```text
+MovieRecommender.ipynb
+```
+
+### 4. Run All Cells
+
+Execute all notebook cells sequentially to:
+
+* Load and preprocess data
+* Generate movie tags
+* Create vector representations
+* Compute cosine similarity
+* Generate movie recommendations
+
+### 5. Generate Recommendations
+
+```python
+recommend("Ramanjun")
+```
+
+The system will return the top 5 most similar movies.
+
+## Project Structure
+
+```text
+Movie-Recommendation-system/
+│
+├── MovieRecommender.ipynb
+├── tmdb_5000_movies.csv
+├── tmdb_5000_credits.csv
+├── movie_list.pkl
+├── similarity.pkl
+└── README.md
+```
+The End
 
 
 
